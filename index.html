@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .slider {
+        border: 10px black solid;
+        width: 600px;
+        height: 400px;
+        position: absolute;
+        top: 90px;
+        overflow-x: hidden;
+        left: 350px;
+    }
+
+    .line {
+        display: flex;
+        flex-wrap: nowrap;
+        position: relative;
+        animation-duration: 2s;
+        right: 0px;
+        transition: all 2s ease;
+    }
+
+    .buttons-section {
+        width: 500px;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 520px;
+        left: 400px;
+
+    }
+
+    .buttons button {
+        background: ;
+        border: 3px solid red;
+        width: 100px;
+        height: 50px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 20px black;
+    }
+    </style>
+</head>
+
+<body>
+    <container class="container">
+        <div class="slider">
+            <div class="line">
+                <img src="449428.jpg">
+                <img src="302250.jpg">
+                <img src="mersedes.jpg">
+            </div>
+        </div>
+        <div class="buttons-section">
+            <div class="buttons">
+                <button id="prev" onclick="prevFn()">Previous</button>
+            </div>
+            <div class="buttons">
+                <button id="next" onclick="nextFn()">Next</button>
+            </div>
+        </div>
+    </container>
+    <script>
+    let prevBtn = document.querySelector("#prev");
+    let nextBtn = document.querySelector("#next");
+    let sliderImg = document.querySelector(".line");
+    let offset = 0;
+    let nextFn = function() {
+        offset += 600
+        sliderImg.style.right = offset + "px"
+        if (offset >= 1800) {
+            sliderImg.style.right = "0px"
+            offset = 0
+        }
+    }
+
+    let prevFn = function() {
+        offset -= 600
+        sliderImg.style.right = offset + "px"
+        if (offset <= 0) {
+            sliderImg.style.right = "0px"
+            offset = 0
+        }
+    }
+    </script>
+</body>
+
+</html>
